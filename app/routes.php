@@ -21,5 +21,25 @@ Route::get('about', function(){
 
 	return View::make('home.about');
 });*/
+Route::get('/', function()
+{
+	return Redirect::to('users/login');
+
+});
 Route::controller('users', 'UsersController');
 
+Route::get('dashboard/product', array(
+    'as' => 'test_home',
+    'before' => 'basicAuth|hasPermissions:user.create|hasPermissions:products-management',
+    'uses' => 'ProductController@getIndex'
+    )
+);
+
+/*Route::get('dashboard/product', array('as' => 'manage_products', 'before' => 'hasPermissions:products-management',
+'uses' => 'ProductController@getIndex'));*/
+
+View::composer('syntara::layouts.dashboard.master', function($view)
+{
+    $view->nest('navPages', 'layouts.left-nav');
+    //$view->nest('navPagesRight', 'right-nav');
+});
