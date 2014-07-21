@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost/samlara',
+	'url' => 'http://localhost/laravel-auth',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -121,6 +121,9 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+		//admin package
+		'Cartalyst\Sentry\SentryServiceProvider',
+   		'Mrjuliuss\Syntara\SyntaraServiceProvider'
 
 	),
 
@@ -188,7 +191,9 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
-
+		
+		//admin package
+		'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry'
 	),
 
 );
